@@ -2,13 +2,13 @@ import csv
 import requests
 import pathlib
 import logging
+import sys
 
-# read the state and county level reports from the CDE website
-# and save them to a local directory
-# 1. First, read the FIPS codes TSV file from US_FIPS_Codes.tsv. yield
-#  Alabama	Autauga	01	001
-
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)],
+)
 logger = logging.getLogger(__name__)
 
 
