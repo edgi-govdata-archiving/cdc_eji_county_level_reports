@@ -54,6 +54,8 @@ if __name__ == "__main__":
     for index, row in enumerate(fips_codes):
         logger.debug(f"Processing row {index + 1} with {row}")
         state, county, state_fips, county_fips = row
+        if state in ["Alaska", "Hawaii"]:
+            continue
         path = generate_url_path(state_fips, state, county_fips, county)
         # check if file exists
         if pathlib.Path(path).exists():
