@@ -22,6 +22,7 @@ def read_fips_codes():
 
 # https://eji.cdc.gov/documents/data/2024/countymaps/26_Michigan/26077_Kalamazoo_County_Michigan.pdf
 def generate_url_path(state_fips, state, county_fips, county):
+    state = state.replace(" ", "_")
     county = county.replace(" ", "_")
     return f"documents/data/2024/countymaps/{state_fips}_{state}/{state_fips}{county_fips}_{county}_County_{state}.pdf"
 
