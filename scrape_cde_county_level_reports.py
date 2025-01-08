@@ -1,11 +1,15 @@
 import csv
 import requests
 import pathlib
+import logging
 
 # read the state and county level reports from the CDE website
 # and save them to a local directory
 # 1. First, read the FIPS codes TSV file from US_FIPS_Codes.tsv. yield
 #  Alabama	Autauga	01	001
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def read_fips_codes():
@@ -18,6 +22,7 @@ def read_fips_codes():
 
 # https://eji.cdc.gov/documents/data/2024/countymaps/26_Michigan/26077_Kalamazoo_County_Michigan.pdf
 def generate_url_path(state_fips, state, county_fips, county):
+    county = county.replace(" ", "_")
     return f"documents/data/2024/countymaps/{state_fips}_{state}/{state_fips}{county_fips}_{county}_County_{state}.pdf"
 
 
@@ -26,10 +31,12 @@ def generate_url(path):
 
 
 def download(url, path):
-    print("Downloading", url, "to", path)
+    logger.info(f"Downloading {url} to {path}")
     response = requests.get(url)
     if response.status_code != 200:
-        print("Failed to download", url)
+        logger.error(
+            f"Failed to download {url} with status code {response.status_code}"
+        )
         return
     # ensure the directory exists
     parent = pathlib.Path(path).parent
@@ -40,16 +47,15 @@ def download(url, path):
 
 
 if __name__ == "__main__":
-    print("Scraping CDE County Level Reports")
+    logger.info("Scraping CDE County Level Reports")
     fips_codes = read_fips_codes()
     for index, row in enumerate(fips_codes):
-        print(f"Processing row {index + 1} with {row}")
+        logger.debug(f"Processing row {index + 1} with {row}")
         state, county, state_fips, county_fips = row
         path = generate_url_path(state_fips, state, county_fips, county)
         # check if file exists
         if pathlib.Path(path).exists():
-            print("File exists", path)
+            logger.debug(f"File {path} already exists")
             continue
         url = generate_url(path)
-        print("URL", url)
         download(url, path)
