@@ -24,7 +24,8 @@ def read_fips_codes():
 def generate_url_path(state_fips, state, county_fips, county):
     state = state.replace(" ", "_")
     county = county.replace(" ", "_")
-    return f"documents/data/2024/countymaps/{state_fips}_{state}/{state_fips}{county_fips}_{county}_County_{state}.pdf"
+    area_name = "Parish" if state == "Louisiana" else "County"
+    return f"documents/data/2024/countymaps/{state_fips}_{state}/{state_fips}{county_fips}_{county}_{area_name}_{state}.pdf"
 
 
 def generate_url(path):
