@@ -8,6 +8,7 @@
       body {
         font-family: Georgia, sans-serif;
         background-color: #f4f4f4;
+        font-size: 16px;
         margin: 0;
         padding: 0;
         display: flex;
@@ -3218,7 +3219,8 @@
           const state = selectedCounty[0].replace(" ", "_");
           const countyFips = selectedCounty[3];
           const county = selectedCounty[1].replace(" ", "_");
-          const urlPath = `documents/data/2024/countymaps/${stateFips}_${state}/${stateFips}${countyFips}_${county}_County_${state}.pdf`;
+          const area_name = state == "Louisiana" ? "Parish" : "County";
+          const urlPath = `documents/data/2024/countymaps/${stateFips}_${state}/${stateFips}${countyFips}_${county}_${area_name}_${state}.pdf`;
           window.open(`https://eji.cdc.gov/${urlPath}`, "_blank");
         });
       }
