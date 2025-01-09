@@ -12,6 +12,7 @@ This code:
 
 1. Clone this repository.
 2. Install [`uv`](https://docs.astral.sh/uv/)
+3. Run `uv sync` to install dependencies.
 
 ## Scraping the CDC's website
 
