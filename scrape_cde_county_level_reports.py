@@ -1,15 +1,18 @@
-import csv
 import requests
 import pathlib
 import logging
 import sys
+import click
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.StreamHandler(sys.stdout)],
-)
-logger = logging.getLogger(__name__)
+
+def setup_logger(level):
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        handlers=[logging.StreamHandler(sys.stdout)],
+    )
+    return logging.getLogger(__name__)
+
 
 td = [
     {
@@ -3541,7 +3544,7 @@ def read_fips_codes():
 def generate_url_path(state_fips, state, county_fips, county):
     state2 = state.replace(" ", "_")
     county2 = county.replace(" ", "_")
-    return f"documents/data/2024/countymaps/{state_fips}_{state2}/{county_fips}_{county2}_{state}.pdf"
+    return f"documents/data/2024/countymaps/{state_fips}_{state2}/{county_fips}_{county2}_{state2}.pdf"
 
 
 def generate_url(path):
@@ -3558,25 +3561,41 @@ def download(url, path):
         return
     # ensure the directory exists
     parent = pathlib.Path(path).parent
+    logger.debug(f"Creating directory {parent}")
     pathlib.Path(parent).mkdir(parents=True, exist_ok=True)
 
     with open(path, "wb") as file:
         file.write(response.content)
 
 
-if __name__ == "__main__":
+@click.command()
+@click.option(
+    "--log-level",
+    default="INFO",
+    help="Set the logging level (default: INFO)",
+    type=click.Choice(["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]),
+)
+@click.option(
+    "--target",
+    default=".",
+    help="Set the target destination for downloads (default: .)",
+    type=click.Path(),
+)
+def main(log_level, target):
+    global logger
+    logger = setup_logger(getattr(logging, log_level.upper(), logging.INFO))
     logger.info("Scraping CDE County Level Reports")
     fips_codes = read_fips_codes()
-    for index, row in enumerate(fips_codes):
-        logger.info(f"Processing row {index + 1} with {row}")
+    for row in fips_codes:
         state, state_fips, county, county_fips = row
-        if state in ["Alaska", "Hawaii"]:
-            continue
-        # ('Wyoming', '56', 'Platte County', '56031')
-        path = generate_url_path(state_fips, state, county_fips, county)
-        # check if file exists
-        if pathlib.Path(path).exists():
-            logger.debug(f"File {path} already exists")
-            continue
-        url = generate_url(path)
+        logger.debug(
+            f"Processing State: {state} County: {county} State FIPS: {state_fips} County FIPS: {county_fips}"
+        )
+        url_path = generate_url_path(state_fips, state, county_fips, county)
+        url = generate_url(url_path)
+        path = pathlib.Path(target) / url_path
         download(url, path)
+
+
+if __name__ == "__main__":
+    main()
