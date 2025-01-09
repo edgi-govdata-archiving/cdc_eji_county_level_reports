@@ -3592,8 +3592,12 @@ def main(log_level, target):
             f"Processing State: {state} County: {county} State FIPS: {state_fips} County FIPS: {county_fips}"
         )
         url_path = generate_url_path(state_fips, state, county_fips, county)
-        url = generate_url(url_path)
+        # continue if the file already exists
         path = pathlib.Path(target) / url_path
+        if path.exists():
+            logger.info(f"Skipping {url_path} as it already exists")
+            continue
+        url = generate_url(url_path)
         download(url, path)
 
 
