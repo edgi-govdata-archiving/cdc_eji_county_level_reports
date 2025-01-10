@@ -1,6 +1,6 @@
 # CDC Environmental Justice Index (EJI) County Map series
 
-Website: [EJI Country Maps](https://willf.github.io/cdc_eji_county_level_reports/)
+Website: [EJI Country Maps](https://edgi-govdata-archiving.github.io/cdc_eji_county_level_reports/)
 
 This code:
 
