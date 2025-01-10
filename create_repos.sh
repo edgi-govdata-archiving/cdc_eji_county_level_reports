@@ -8,6 +8,7 @@ fi
 
 # Base directory containing the state directories
 BASE_DIR="$1"
+GITHUB_ORG="environmental-report-archive"
 
 # Iterate over each directory in the base directory
 for dir in "$BASE_DIR"/*; do
@@ -25,7 +26,7 @@ for dir in "$BASE_DIR"/*; do
         state_name=$(echo $dir_name | sed 's/^[0-9]*_//' | sed 's/_/ /g')
 
         # Check if the repository exists on GitHub
-        if gh repo view edgi-govdata-archiving/$repo_name > /dev/null 2>&1; then
+        if gh repo view $GITHUB_ORG/$repo_name > /dev/null 2>&1; then
             # If the repository already exists, just add and push changes
             echo "Repository $repo_name already exists. Adding and pushing changes..."
             git add -A
@@ -52,7 +53,7 @@ for dir in "$BASE_DIR"/*; do
             git branch -M main
 
             # Create the repository on GitHub using gh CLI
-            gh repo create edgi-govdata-archiving/$repo_name --public --source=. --remote=origin
+            gh repo create $GITHUB_ORG/$repo_name --public --source=. --remote=origin
 
             # Push the initial commit to the remote repository
             git push --set-upstream origin main
