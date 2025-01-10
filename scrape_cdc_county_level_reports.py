@@ -3551,7 +3551,7 @@ def generate_url(path):
     return f"https://eji.cdc.gov/{path}"
 
 
-def download(url, path):
+def do_download(url, path):
     logger.info(f"Downloading {url} to {path}")
     response = requests.get(url)
     if response.status_code != 200:
@@ -3568,6 +3568,11 @@ def download(url, path):
         file.write(response.content)
 
 
+def do_spreadsheet(url):
+    # write url to the spreadsheet
+    print(url)
+
+
 @click.command()
 @click.option(
     "--log-level",
@@ -3581,7 +3586,22 @@ def download(url, path):
     help="Set the target destination for downloads (default: .)",
     type=click.Path(),
 )
-def main(log_level, target):
+@click.option(
+    "--spreadsheet",
+    default=True,
+    type=bool,
+    is_flag=True,
+    show_default=True,
+    help="Output the data to a spreadsheet",
+)
+@click.option(
+    "--download",
+    default=False,
+    type=bool,
+    is_flag=True,
+    help="Download the files",
+)
+def main(log_level, target, spreadsheet, download):
     global logger
     logger = setup_logger(getattr(logging, log_level.upper(), logging.INFO))
     logger.info("Scraping CDE County Level Reports")
@@ -3592,13 +3612,17 @@ def main(log_level, target):
             f"Processing State: {state} County: {county} State FIPS: {state_fips} County FIPS: {county_fips}"
         )
         url_path = generate_url_path(state_fips, state, county_fips, county)
-        # continue if the file already exists
-        path = pathlib.Path(target) / url_path
-        if path.exists():
-            logger.info(f"Skipping {url_path} as it already exists")
-            continue
         url = generate_url(url_path)
-        download(url, path)
+        # if download:
+        #     # continue if the file already exists
+        #     path = pathlib.Path(target) / url_path
+        #     if path.exists():
+        #         logger.info(f"Skipping {url_path} as it already exists")
+        #         continue
+        #     else:
+        #         do_download(url, path)
+        if spreadsheet:
+            do_spreadsheet(url)
 
 
 if __name__ == "__main__":

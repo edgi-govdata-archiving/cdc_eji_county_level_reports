@@ -47,4 +47,3 @@ gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_53_Washington
 gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_54_West_Virginia
 gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_55_Wisconsin
 gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_56_Wyoming
-gh repo delete edgi-govdata-archiving/temp
