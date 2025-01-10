@@ -3645,9 +3645,11 @@
           const state = selectedCounty.state;
           const countyFips = selectedCounty.county_fips;
           const county = selectedCounty.county;
+          const github_org = "environmental-report-archive";
+          const repo_prefix = "CDC_EIJ_DATA_";
           //https://github.com/edgi-govdata-archiving/CDC_EIJ_DATA_16_Idaho/blob/main/16001_Ada_County_Idaho.pdf
           const urlPath =
-            `edgi-govdata-archiving/CDC_EIJ_DATA_${stateFips}_${state}/blob/main/${countyFips}_${county}_${state}.pdf`.replace(
+            `${github_org}/${repo_prefix}${stateFips}_${state}/blob/main/${countyFips}_${county}_${state}.pdf`.replace(
               / /g,
               "_"
             );
@@ -3705,7 +3707,8 @@
         <a href="https://envirodatagov.org/"
           >The Environmental Data & Governance Initiative (EDGI)</a
         >. GitHub repository:
-        <a href="https://github.com/edgi-govdata-archiving/cdc_eji_county_level_reports"
+        <a
+          href="https://github.com/edgi-govdata-archiving/cdc_eji_county_level_reports"
           >edgi-govdata-archiving/cdc_eji_county_level_reports</a
         >.
       </p>
