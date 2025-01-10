@@ -1,49 +1,49 @@
 #!/bin/bash
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_01_Alabama
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_04_Arizona
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_05_Arkansas
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_06_California
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_08_Colorado
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_10_Delaware
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_11_District_of_Columbia
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_12_Florida
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_13_Georgia
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_16_Idaho
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_17_Illinois
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_18_Indiana
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_19_Iowa
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_20_Kansas
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_21_Kentucky
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_22_Louisiana
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_23_Maine
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_24_Maryland
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_25_Massachusetts
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_26_Michigan
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_27_Minnesota
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_28_Mississippi
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_29_Missouri
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_30_Montana
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_31_Nebraska
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_32_Nevada
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_33_New_Hampshire
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_34_New_Jersey
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_35_New_Mexico
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_36_New_York
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_37_North_Carolina
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_38_North_Dakota
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_39_Ohio
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_40_Oklahoma
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_41_Oregon
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_42_Pennsylvania
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_44_Rhode_Island
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_45_South_Carolina
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_46_South_Dakota
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_47_Tennessee
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_48_Texas
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_49_Utah
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_50_Vermont
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_51_Virginia
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_53_Washington
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_54_West_Virginia
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_55_Wisconsin
-gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_56_Wyoming
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_01_Alabama --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_04_Arizona --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_05_Arkansas --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_06_California --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_08_Colorado --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_10_Delaware --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_11_District_of_Columbia --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_12_Florida --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_13_Georgia --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_16_Idaho --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_17_Illinois --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_18_Indiana --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_19_Iowa --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_20_Kansas --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_21_Kentucky --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_22_Louisiana --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_23_Maine --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_24_Maryland --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_25_Massachusetts --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_26_Michigan --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_27_Minnesota --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_28_Mississippi --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_29_Missouri --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_30_Montana --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_31_Nebraska --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_32_Nevada --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_33_New_Hampshire --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_34_New_Jersey --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_35_New_Mexico --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_36_New_York --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_37_North_Carolina --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_38_North_Dakota --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_39_Ohio --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_40_Oklahoma --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_41_Oregon --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_42_Pennsylvania --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_44_Rhode_Island --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_45_South_Carolina --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_46_South_Dakota --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_47_Tennessee --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_48_Texas --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_49_Utah --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_50_Vermont --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_51_Virginia --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_53_Washington --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_54_West_Virginia --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_55_Wisconsin --yes
+gh repo delete edgi-govdata-archiving/CDC_EIJ_DATA_56_Wyoming --yes
