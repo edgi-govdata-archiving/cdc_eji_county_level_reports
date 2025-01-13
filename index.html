@@ -3581,6 +3581,17 @@
           disabled: !1,
         },
       ];
+      function generateTimestamp() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+        const day = String(now.getDate()).padStart(2, "0");
+        const hour = String(now.getHours()).padStart(2, "0");
+        const minute = String(now.getMinutes()).padStart(2, "0");
+        const second = String(now.getSeconds()).padStart(2, "0");
+
+        return `${year}${month}${day}${hour}${minute}${second}`;
+      }
       function loadFipsCodes() {
         const stateSelect = document.getElementById("stateSelect");
         const countySelect = document.getElementById("countySelect");
@@ -3665,7 +3676,7 @@
           const state = selectedCounty.state;
           const countyFips = selectedCounty.county_fips;
           const county = selectedCounty.county;
-          const date_prefix = "99999999999999";
+          const date_prefix = generateTimestamp();
           //https://github.com/edgi-govdata-archiving/CDC_EIJ_DATA_16_Idaho/blob/main/16001_Ada_County_Idaho.pdf
           const urlPath =
             `${date_prefix}/https://eji.cdc.gov/documents/data/2024/countymaps/${stateFips}_${state}/${countyFips}_${county}_${state}.pdf`.replace(
