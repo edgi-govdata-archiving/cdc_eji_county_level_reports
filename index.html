@@ -3586,6 +3586,7 @@
         const countySelect = document.getElementById("countySelect");
         const viewReportButton = document.getElementById("viewReportButton");
         const viewGitHubButton = document.getElementById("viewGitHubButton");
+        const viewIAButton = document.getElementById("viewIAButton");
         const enabledStates = fipsCodes.filter((state) => !state.disabled);
         enabledStates.forEach((state) => {
           const option = document.createElement("option");
@@ -3616,11 +3617,13 @@
           }
           viewReportButton.disabled = true;
           viewGitHubButton.disabled = true;
+          viewIAButton.disabled = true;
         });
 
         countySelect.addEventListener("change", () => {
           viewReportButton.disabled = !countySelect.value;
           viewGitHubButton.disabled = !countySelect.value;
+          viewIAButton.disabled = !countySelect.value;
         });
 
         viewReportButton.addEventListener("click", () => {
@@ -3655,6 +3658,22 @@
             );
           window.open(`https://github.com/${urlPath}`, "_blank");
         });
+
+        viewIAButton.addEventListener("click", () => {
+          const selectedCounty = JSON.parse(countySelect.value);
+          const stateFips = selectedCounty.state_fips;
+          const state = selectedCounty.state;
+          const countyFips = selectedCounty.county_fips;
+          const county = selectedCounty.county;
+          const date_prefix = "99999999999999";
+          //https://github.com/edgi-govdata-archiving/CDC_EIJ_DATA_16_Idaho/blob/main/16001_Ada_County_Idaho.pdf
+          const urlPath =
+            `${date_prefix}/https://eji.cdc.gov/documents/data/2024/countymaps/${stateFips}_${state}/${countyFips}_${county}_${state}.pdf`.replace(
+              / /g,
+              "_"
+            );
+          window.open(`https://web.archive.org/web/${urlPath}`, "_blank");
+        });
       }
       window.onload = loadFipsCodes;
     </script>
@@ -3675,6 +3694,9 @@
       </select>
       <br />
       <button id="viewReportButton" disabled>View Report at CDC</button>
+      <button id="viewIAButton" disabled>
+        View Report at Internet Archive
+      </button>
       <button id="viewGitHubButton" disabled>View Report at GitHub</button>
       <p>
         <strong>Note:</strong> The reports are in PDF format and will open in a
@@ -3701,6 +3723,11 @@
         Only the 48 contiguous states are included in the data from the CDC, and
         although most states use counties, some use other administrative
         divisions.
+      </p>
+      <p>
+        All reports should be available in the GitHub repository. It is possible
+        that the CDC will remove or update the reports. Internet Archive links
+        may or may not work.
       </p>
       <p>
         Prepared for
